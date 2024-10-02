@@ -7,6 +7,10 @@ message("== CMake setup ==")
 project(CGAL CXX C)
 export(PACKAGE CGAL)
 
+if (MSVC)
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /Zc:__cplusplus /permissive-")
+endif()
+
 set(CGAL_BRANCH_BUILD
     ON
     CACHE INTERNAL "Create CGAL from a Git branch" FORCE)
